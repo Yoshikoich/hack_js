@@ -5,8 +5,13 @@
  * 
  * output => [5,4,3,2,1]
  */
+
 let result = [];
 
+for (let i = 5; i >=  1; i--) {
+    result.push(i);
+  }
+  
 
-//export result
+
 module.exports = result;

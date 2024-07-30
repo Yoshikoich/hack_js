@@ -8,5 +8,9 @@
 let result = [];
 
 
-//export result
+for (let i = 1; i <=  5; i++) {
+  result.push(i);
+}
+
+
 module.exports = result;

@@ -15,10 +15,42 @@
  * 
  * output => ["h@ck","one",2,"three",4,"five","h@ck","f00","Bar","b@z","quX","3ch0","h@ck"]   
  */
-let numberArray = [1,2,3,4,5];
-let stringArray = ["foo","bar","baz","qux","echo"]
+let numberArray = [1, 2, 3, 4, 5];
+let stringArray = ["foo", "bar", "baz", "qux", "echo"];
 let result = [];
 
 
-//export result
+let combinedArray = [...numberArray, ...stringArray];
+
+
+combinedArray = combinedArray.map(item => {
+  if (typeof item === 'number') {
+    if (item === 1) return "one";
+    if (item === 3) return "three";
+    if (item === 5) return "five";
+    return item;
+  }
+  if (typeof item === 'string') {
+    switch (item) {
+      case 'foo':
+        return 'f00';
+      case 'bar':
+        return 'Bar';
+      case 'baz':
+        return 'b@z';
+      case 'qux':
+        return 'quX';
+      case 'echo':
+        return '3ch0';
+      default:
+        return item;
+    }
+  }
+  return item;
+});
+
+
+result = ["h@ck", ...combinedArray.slice(0, numberArray.length), "h@ck", ...combinedArray.slice(numberArray.length), "h@ck"];
+
+
 module.exports = result;
